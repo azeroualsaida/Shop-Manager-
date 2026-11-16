@@ -6,7 +6,6 @@ const maxPriceInput = document.getElementById("max-price")
 const inStockChexBox = document.getElementById("in-stock");
 const buttonResetFilters = document.getElementById("reset-filters");
 
-
 // const API_BASE = "http://localhost:3000/api";
 //     
 //   fetch ("http://localhost:3000/api/products")
@@ -85,6 +84,21 @@ const buttonResetFilters = document.getElementById("reset-filters");
 //        displayProduct(products);
 // }
 
+ productsContainer.addEventListener("click",(event)=>{
+ 
+    if(event.target.classList.contains("btn-plus")){
+        let span = event.target.previousElementSibling;
+      span.textContent = Number(span.textContent) + 1;
+
+    }
+
+    if(event.target.classList.contains("btn-minus")){
+          let span = event.target.previousElementSibling;
+       if (Number(span.textContent) > 1) {
+            span.textContent = Number(span.textContent) - 1;
+        }
+    }
+ });
 
 getProducts()
 
@@ -175,6 +189,8 @@ function getProducts() {
         });
 }
 
+
+
 function displayProducts(products) {
 
 
@@ -182,28 +198,86 @@ function displayProducts(products) {
 
     products.forEach((product) => {
 
+        // productsContainer.innerHTML += ` 
+
+        //  <article id="articl-" http://localhost:3000class=" w-90 h-115 shadow-md rounded-4xl border-gray-600 flex flex-col bg-[#FFFCF5] justify-start
+        //             mt-4 overflow-hidden w-[calc(25%-18px)] rounded-3xl ">
+        //             <img src="http://localhost:3000${product.image}" alt="${product.name}" class=" w-full p-3 object-cover rounded-4xl">
+        //             <div class=" flex flex-col ml-4 mr-4  ">
+        //                 <h3 class=" font-sans font-medium text-xl text-gran-900 mb-2 ">${product.name}
+        //                 </h3>
+        //                 <p class=" text-[#605E5A] text-sm  font-light leading-relaxed max-w-md mb-5">${product.description}</p>
+        //                 <div class="  flex items-center justify-between   p-4 rounded-b-2xl border-t border-gray-400 ">
+        //                     <p class=" text-sm ">$${product.price}</p>
+        //                     <button class="ml-auto flex justify- items-center    bg-[#152c27]  
+
+        //                      text-white px-5 py-2 rounded-xl text-sm font-medium flex items-center gap-2 hover:bg-[#286246] transition-colors
+
+
+        //                     ">
+        //                          <i class="fa-xl  fa-plus" style="color: rgb(255, 255, 255)"></i>
+
+        //                         <div class="font-1xl text-white ">
+        //                             Add
+        //                         </div>
+        //                     </button>
+        //                 </div>
+
+        //             </div>
+
+        //         </article>
+        // `
         productsContainer.innerHTML += ` 
 
-         <article id="articl-" http://localhost:3000class=" w-90 h-115 shadow-md rounded-4xl border-gray-600 flex flex-col bg-[#FFFCF5] justify-start
-                    mt-4 overflow-hidden w-[calc(25%-18px)] rounded-3xl ">
-                    <img src="http://localhost:3000${product.image}" alt="${product.name}" class=" w-full p-3 object-cover rounded-4xl">
-                    <div class=" flex flex-col ml-4 mr-4  ">
-                        <h3 class=" font-sans font-medium text-xl text-gran-900 mb-2 ">${product.name}
-                        </h3>
-                        <p class=" text-[#605E5A] text-sm  font-light leading-relaxed max-w-md mb-5">${product.description}</p>
-                        <div class="  flex items-center justify-between   p-4 rounded-b-2xl border-t border-gray-400 ">
-                            <p class=" text-sm ">$${product.price}</p>
-                            <button class="  h-10 w-10 bg-[#rgb(255, 212, 59)]">
-                                <div class="font-2xl">
-                                    <i class="fa-solid fa-circle-arrow-right" style="color: rgb(255, 212, 59);"></i>
-                                </div>
-                            </button>
-                        </div>
 
-                    </div>
+  <article id="articl-${product.id}" class="w-90 h-115 shadow-md rounded-4xl border-gray-600 flex flex-col bg-[#FFFCF5] justify-start mt-4 overflow-hidden w-[calc(25%-18px)]">
+    
+    <!-- Image + Category Badge -->
+    <div class="relative">
+      <img src="http://localhost:3000${product.image}" alt="${product.name}" class="w-full p-3 object-cover rounded-4xl">
+      <span class="absolute top-6 left-6 bg-white/90 text-[#605E5A] text-xs font-medium px-3 py-1 rounded-full uppercase">
+        ${displayCategories(product.categoryId)}
+      </span>
+    </div>
 
-                </article>
-        `
+    <div class="flex flex-col ml-4 mr-4 flex-1 justify-between">
+      <div>
+        <div class="flex items-center justify-between mb-2">
+          <h3 class="font-sans font-medium text-xl text-gray-900">${product.name}</h3>
+          <p class="text-base font-medium text-gray-900">$${product.price}</p>
+        </div>
+
+        <!-- Description -->
+        <p class="text-[#605E5A] text-sm font-light leading-relaxed max-w-md mb-5">
+          ${product.description}
+        </p>
+      </div>
+
+      <!-- Bottom Action Row -->
+      <div class="flex items-center justify-between gap-2 py-4 rounded-b-2xl border-t border-gray-400">
+        <span class="text-amber-600 text-xs font-medium">
+          Only ${product.stock || 5} left
+        </span>
+
+        <div class="flex items-center gap-2 ml-auto">
+          <!-- Quantity Pill (- 1 +) -->
+          <div class="flex items-center justify-between w-24 px-3 py-1.5 bg-white border border-gray-300 rounded-full">
+            <button type="button" class=" btn-minus text-gray-400 hover:text-gray-700">-</button>
+            <span class="text-sm font-medium text-gray-900">1</span>
+            <button type="button" class=" btn-plus text-gray-700 hover:text-black">+</button>
+          </div>
+
+          <!-- Your Add Button -->
+          <button type="button" class="flex justify-center items-center bg-[#152c27] text-white px-4 py-2 rounded-xl text-sm font-medium gap-2 hover:bg-[#286246] transition-colors">
+            <i class="fa-solid fa-plus" style="color: rgb(255, 255, 255)"></i>
+            <span class="text-white">Add</span>
+          </button>
+        </div>
+      </div>
+
+    </div>
+  </article>
+`;
     });
 
 }

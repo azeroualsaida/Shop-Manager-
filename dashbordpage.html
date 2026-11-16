@@ -14,9 +14,9 @@
 
 <body class="bg-[#F6F2E9]">
     <header
-        class="flex  justify-items-center  justify-between border border-gray-300  p-5 rounded-4xl  mt-4 bg-[#FFFCF5] ml-15 mr-15 rounded-3xl shadow-sm  justify-between shadow-sm  ">
+        class="flex  items-center justify-items-center justify-between border border-gray-300  p-5 rounded-4xl  mt-6 bg-[#FFFCF5] ml-15 mr-15 rounded-3xl shadow-sm  justify-between shadow-sm  ">
 
-        <div class=" flex    items-center bg-gren-100 gap-6">
+        <div class=" flex    bg-gren-100 gap-6">
             <div class="flex  item-center gap-3 ">
                 <img src="./image/Brand mark.png" alt="Logo de mon site" class="header-img w-9 h-9 object-contain mt-1">
                 <div
@@ -26,27 +26,38 @@
                 </div>
 
             </div>
-            <nav class="flex flex-row justify-items-center   ">
+
+        </div>
+
+        <div class="  flex justify-end   justify -items-center  gap-5 items-center ">
+
+            <nav class="flex flex-row items-center justify-items-center   ">
                 <ul class="flex flex-row gap-4 mt-2 ">
-                    <li> <a href="dashbordpage.html" class="active text-neutral-600 hover:text-neutral-900"">Dashboard</a></li>
-                    <li> <a href=" products.htlm" class="active text-neutral-600 hover:text-neutral-900"> Products </a>
+                    <li> <a href="dashbordpage.html" class="active text-neutral-600 hover:text-neutral-900 px-5 py-3 rounded-xl text-[#0B3C32] font-semibold
+                     transition-all duration-300 hover:bg-[#F6F2E9]">Dashboard</a></li>
+
+                    <li> <a href="MyRes.html" class="active text-neutral-600 hover:text-neutral-900     
+                        px-5 py-3 rounded-xl text-gray-600 font-semibold
+                     transition-all duration-300 hover:bg-[#F6F2E9] hover:text-[#0B3C32]
+                        "> MyReservation </a>
+                    </li>
+
+
+                    <li>
+
+                        <a href="carte.html"
+                            class="  min-w-[50px] min-h-[35px] flex items-center align-item justify-center rounded-2xl border border-gray-200 hover:bg-[#F6F2E9]
+                            transition-all duration-300">
+                            <i class="fa-solid fa-cart-shopping"></i>
+
+                        </a>
                     </li>
                 </ul>
             </nav>
         </div>
-
-        <div class=" justify-end flex gap-5 ">
-            <div class="mt-2 text-xl text-neutral-700 flex items-center justify-center cursor-pointer "><i
-                    class="fa-regular fa-bell"></i></div>
-            <avatar
-                class="w-11 h-11 rounded-full bg-slate-200 flex items-center justify-center font-bold text-sm text-slate-500 select-none uppercase border border-white shadow-sm cursor-pointer">
-                VO</avatar>
-
-        </div>
-
     </header>
     <main class="overflow-y-auto">
-        <section class=" bg-[#] flex flex-col items-center justify-center p-8 ml-10 mr-10 gap-6">
+        <section class="  bg-[#] flex flex-col items-center justify-center p-8 ml-10 mr-10 gap-4">
             <section class=" w- flex flex-col w-full  
 md:flex-row items-center justify-evenly  gap-70">
 
@@ -67,7 +78,7 @@ md:flex-row items-center justify-evenly  gap-70">
                 </div>
 
                 <div class="flex-1 flex justify-end w-full">
-                    <div class="relative w-full max-w-md aspect-[4/3] rounded-[2rem] overflow-hidden shadow-sm">
+                    <div class="relative w-full max-w-[450px] aspect-[4/3] rounded-[2rem] overflow-hidden shadow-sm">
                         <img src="./image/shop-hero.jpg" alt="Product Showcase" class="w-full h-full object-cover" />
 
                         <!-- Optional Floating Badge to match the image structure -->
@@ -102,22 +113,21 @@ md:flex-row items-center justify-evenly  gap-70">
                     <!-- 3. خانة تحديد السعر الأعلى -->
                     <div class="flex items-center bg-white px-3 py-2 rounded-xl border  border-[#E7DFD0] max-w-[140px]">
                         <span class="text-gray-400 mr-1 text-sm">$</span>
-                        <input type="number"  id="max-price" placeholder="Max Price"
+                        <input type="number" id="max-price" placeholder="Max Price"
                             class="w-full outline-none text-sm text-gray-700 [appearance:textfield] [&::-webkit-outer-spin-button]:appearance-none [&::-webkit-inner-spin-button]:appearance-none">
                     </div>
 
                     <!-- 4. خيار المنتجات المتوفرة فقط -->
                     <label
                         class="flex items-center gap-2 text-sm text-gray-700 cursor-pointer select-none  rounded-xl px-3 py-2  border border-[#E7DFD0]">
-                        <input type="checkbox"  id="in-stock"class="w-4 h-4 rounded border-gray-300">
+                        <input type="checkbox" id="in-stock" class="w-4 h-4 rounded border-gray-300">
                         <span>In Stock Only</span>
                     </label>
 
                     <!-- 5. زر إعادة التعيين -->
-                    <button
-                         id="reset-filters"
+                    <button id="reset-filters"
                         class="ml-auto bg-[#1E3E37] text-white px-5 py-2 rounded-xl text-sm font-medium flex items-center gap-2 hover:bg-[#152c27] transition-colors">
-                        <span><i class="fa-solid fa-rotate-right" ></i></span>
+                        <span><i class="fa-solid fa-rotate-right"></i></span>
                         Reset Filters
                     </button>
 
@@ -156,9 +166,9 @@ md:flex-row items-center justify-evenly  gap-70">
                             lengthening</p>
                         <div class="  flex items-center justify-between   p-4 rounded-b-2xl border-t border-gray-400 ">
                             <p class=" text-sm ">$9.99</p>
-                            <button class="  h-10 w-10 bg-[#rgb(255, 212, 59)]">
+                            <button class="  h-10 w-15  bg-[#286246]">
                                 <div class="font-2xl">
-                                    <i class="fa-solid fa-circle-arrow-right" style="color: rgb(255, 212, 59);"></i>
+                                    <!-- <i class="fa-solid fa-circle-arrow-right" style="color: rgb(255, 212, 59);"></i> -->
                                 </div>
                             </button>
                         </div>
@@ -172,7 +182,10 @@ md:flex-row items-center justify-evenly  gap-70">
             </div>
         </section>
     </main>
+    <script src="./js/storage.js"></script>
     <script src="./js/dash.js"></script>
+    <script src="./js/carte.js"></script>
+    <script src="./js/MRe.js"></script>
 </body>
 
 </html>
